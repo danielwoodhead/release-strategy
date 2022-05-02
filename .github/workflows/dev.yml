@@ -11,7 +11,7 @@ on:
 
 jobs:
   test_build_deploy_job:
-    uses: ./.github/workflows/azure-static-web-app
+    uses: ./.github/workflows/azure-static-web-app.yml
     secrets:
       web-app-token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DEV }}
       git-hub-token: ${{ secrets.GITHUB_TOKEN }}
