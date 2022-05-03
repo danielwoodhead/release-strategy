@@ -1,13 +1,6 @@
-name: stg
+name: prd
 
-on:
-  push:
-    branches:
-      - "releases/**"
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - "releases/**"
+on: workflow_dispatch
 
 jobs:
   test_build_deploy_job:
