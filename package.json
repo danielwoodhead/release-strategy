@@ -49,7 +49,7 @@
   },
   "release": {
     "branches": [
-      "main"
+      "releases/**"
     ]
   }
 }
