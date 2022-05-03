@@ -17,15 +17,26 @@ Topics:
 
 [commitlint](https://github.com/conventional-changelog/commitlint) is run as a pre-commit hook using [husky](https://github.com/typicode/husky) to enforce commit message format
 
-## Deployment to dev
+## Release Process
 
-When a PR is created targeting the main branch the changes are automatically deployed to a temporary environment. When the PR is closed the temporary environment is destroyed. If the PR is merged the changes are deployed to the dev environment.
+### Development environment
 
-## Deployment to staging
+1. Create a new branch from main
+2. Make changes
+3. Push the branch
+4. Create a PR to main
+   i. this triggers the deployment of the changes to a temporary environment
+5. Complete the PR with a squash commit once it's approved
+   i. this triggers the deployment of the changes to the dev environment
+   ii. and destroys the temporary environment the changes were deployed to
 
-Create a new release branch:
+### Staging environment
 
-```bash
-git checkout -b releases/1
-git push origin releases/1
-```
+1. Create a new release branch from main e.g. `releases/1`
+2. Push the branch
+   i. this triggers the deployment of the branch to the staging environment
+   ii. and creates a new GitHub release if there have been relevant changes since the last release
+
+### Production release
+
+1. Run the 'prd' workflow on GitHub selecting the appropriate release branch
